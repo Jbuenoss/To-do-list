@@ -27,37 +27,14 @@
 
     <header>
         <input id="inputTask" type="text" placeholder="Type your task">
-        <button class="add">Add task</button>
+        <button id="btnAdd" onclick="addTask()" class="add">Add task</button>
     </header>
 
     <main id="listArea">
-        <div class="item">
-            <div class="itemIcon">
-                <span class="material-symbols-outlined">radio_button_unchecked</span>
-            </div>
-            <div class="itemName">
-                Task Test
-            </div>
-            <div class="itemButton">
-                <button class="delete"><span class="material-symbols-outlined">delete</span>Delete</button>
-            </div>
-        </div>
-
-        <div class="item Clicked">
-            <div class="itemIcon">
-                <span class="material-symbols-outlined">radio_button_checked</span>
-            </div>
-            <div class="itemName">
-                Task Test
-            </div>
-            <div class="itemButton">
-                <button class="delete"><span class="material-symbols-outlined">delete</span>Delete</button>
-            </div>
-        </div>
-
+        
     </main>
 
-
+    
     <script src="js/control.js"></script>
 </body>
 
