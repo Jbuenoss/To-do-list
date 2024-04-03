@@ -1,0 +1,110 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: #F9F9F9;
+}
+
+h1{
+    text-align:center;
+    font-size: 2.5rem; /*3 times the h1 size */
+}
+
+header{
+    display:flex;
+    flex-flow: row wrap;
+    width: 90%;
+    margin: auto;
+    /* border: 1px solid red; */
+    align-items: center;
+    /* justify-content: center; */
+}
+
+input{
+    height:120px;
+    font-size:2rem;
+    width: 80%;
+    padding-left: 10%;
+}
+
+button.add{
+    width:20%;
+    cursor: pointer;
+    background-color: #009247;
+    color:#F9F9F9;
+    font-weight: bold;
+    border:none;
+    height:120px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+main{
+    display:flex;
+    flex-flow:row wrap;
+    width:90%;
+    margin:auto auto;
+    /* border: 1px solid red; */
+    padding-top:30px;
+}
+
+.item, .itemClicked{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #F9F9F9;
+    height:80px;
+    width:100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    margin-bottom:2%;
+}
+
+.itemIcon{
+    flex:20%;
+    /* border: 3px solid orange; */
+    text-align: center;
+
+}
+
+.itemName{
+    flex:60%;
+    /* border: 3px solid red; */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.itemButton{
+    flex:20%;
+    /* border: 3px solid pink; */
+}
+
+.itemIcon .material-symbols-outlined {
+    font-size: 2.2rem;
+}
+
+.delete{
+    background-color: red;
+    height: 80px;
+    padding:10px;
+    border:none;
+    color:#F9F9F9;
+    width:100%;
+}
+
+.Clicked .itemIcon .material-symbols-outlined {
+    color: #009247;
+}
+
+.item.Clicked {
+    background-color: #d2ffe1;
+}
+
+.item.Clicked .itemName{
+    text-decoration: line-through;
+    color:gray;
+}
