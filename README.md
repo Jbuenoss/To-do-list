@@ -10,7 +10,7 @@ The To-Do List project is a web application designed to facilitate task manageme
 
 ## Future Enhancements:
 
-~~- Task prioritization and sorting options.~~
+- ~~Task prioritization and sorting options.~~
 - Implementation of a Timer to Specify Time Spent on Each Task
 - Integration with cloud-based storage.
 
