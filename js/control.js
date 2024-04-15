@@ -9,7 +9,7 @@ function addTask() {
     if ((text !== "") && (text !== null) && (text !== undefined)) {
         ++contador;
 
-        //crase 
+        //acute accent
         let newItem = `<div id=${contador} class="item">
         <div onclick="markTask(${contador})" class="itemIcon">
             <span id=icon_${contador} class="material-symbols-outlined">radio_button_unchecked</span>
