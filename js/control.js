@@ -3,18 +3,19 @@ const btnAdd = document.getElementById("btnAdd");
 const main = document.getElementById("listArea");
 
 let contador = [];
-for (let i = 1; i < 100; i++) {
+for (let i = 1; i <= 100; i++) {
     contador.push(i);
 }
 let indice = 0;
 
-function addTask() {
-    let text = input.value;
+function addTask(){
+    if (indice < contador.length) {
+        let text = input.value;
 
-    if ((text !== "") && (text !== null) && (text !== undefined)) {
-        //acute accent
-        let newItem =
-            `<div id=${contador[indice]} class="item">
+        if ((text !== "") && (text !== null) && (text !== undefined)) {
+            //acute accent
+            let newItem =
+                `<div id=${contador[indice]} class="item">
                 <div onclick="markTask(${contador[indice]})" class="itemIcon">
                     <span id=icon_${contador[indice]} class="material-symbols-outlined">radio_button_unchecked</span>
                 </div>
@@ -34,14 +35,15 @@ function addTask() {
                 </div>
             </div>`
 
-        main.innerHTML += newItem;
-        saveTasks();
+            main.innerHTML += newItem;
+            saveTasks();
 
-        indice++;
+            indice++;
 
-        input.value = "";
-        //to add a new thing
-        input.focus();
+            input.value = "";
+            //to add a new thing
+            input.focus();
+        }
     }
 }
 
@@ -100,7 +102,7 @@ function markTask(id) {
 }
 
 function saveTasks() {
-    localStorage.setItem("tasks", JSON.stringify([main.innerHTML]));
+    localStorage.setItem("tasks", JSON.stringify(main.innerHTML));
 }
 
 function loadTasks() {
