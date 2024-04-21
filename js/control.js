@@ -3,24 +3,17 @@ const btnAdd = document.getElementById("btnAdd");
 const main = document.getElementById("listArea");
 
 let contador = [];
-for(let i = 1; i < 100; i++){
+for (let i = 1; i < 100; i++) {
     contador.push(i);
 }
-// let contador = 0;
 let indice = 0;
 
 function addTask() {
     let text = input.value;
 
     if ((text !== "") && (text !== null) && (text !== undefined)) {
-        
-        while(indice <= 100 && contador[indice] == undefined){
-            indice++;
-        }
-
-        if(contador[indice] != undefined){
-            //acute accent
-            let newItem = 
+        //acute accent
+        let newItem =
             `<div id=${contador[indice]} class="item">
                 <div onclick="markTask(${contador[indice]})" class="itemIcon">
                     <span id=icon_${contador[indice]} class="material-symbols-outlined">radio_button_unchecked</span>
@@ -41,13 +34,11 @@ function addTask() {
                 </div>
             </div>`
 
-            main.innerHTML += newItem;
+        main.innerHTML += newItem;
+        saveTasks();
 
-            saveTasks(newItem);
+        indice++;
 
-            indice++;
-        }
-    
         input.value = "";
         //to add a new thing
         input.focus();
@@ -57,22 +48,27 @@ function addTask() {
 function deleteTask(id) {
     var task = document.getElementById(id);
     task.remove();
+    saveTasks()
 }
 
-function moveToUp(id){
+function moveToUp(id) {
     var task = document.getElementById(id);
     var previousTask = task.previousElementSibling;
-    if(previousTask !== null){
+    if (previousTask !== null) {
         previousTask.parentNode.insertBefore(task, previousTask)
     }
+
+    saveTasks()
 }
 
-function moveToDown(id){
+function moveToDown(id) {
     var task = document.getElementById(id);
     var nextTask = task.nextElementSibling;
-    if(nextTask !== null){
+    if (nextTask !== null) {
         nextTask.insertAdjacentElement('afterend', task);
     }
+
+    saveTasks()
 }
 
 //to put button type
@@ -99,35 +95,24 @@ function markTask(id) {
         item.classList.remove('clicked');
         icon.textContent = "radio_button_unchecked";
     }
+
+    saveTasks()
 }
 
-function saveTasks(item){
-    let previous = JSON.parse(localStorage.getItem("tasks")) || [];
-    // var previous = JSON.parse(localStorage.getItem("tasks"));
-    previous.push(item);
-
-    let current = JSON.stringify(previous);
-    localStorage.setItem("tasks", current);
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify([main.innerHTML]));
 }
 
-function loadTasks(){
+function loadTasks() {
     let current = JSON.parse(localStorage.getItem("tasks"));
 
-    const listAreaElement = document.getElementById("listArea");
-    
-    if(current){
-        for(item of current){
-            listAreaElement.innerHTML += item;
-        }
-    }
+    main.innerHTML = current;
 }
 
-function updateId(){
+function updateId() {
     const tasks = [...document.getElementsByClassName("item")];
-
-    for(task of tasks){
-        console.log(task.id-1);
-        delete contador[task.id-1];
+    for (task of tasks) {
+        contador.splice(task.id - 1, 1);
     }
 }
 
@@ -135,6 +120,6 @@ window.onload = () => {
     // localStorage.clear();
     loadTasks();
 
-    //update id element
+    //update id element available
     updateId();
 };
