@@ -2,6 +2,9 @@
 
 The To-Do List project is a web application designed to facilitate task management and organization.
 
+
+![image](https://github.com/Jbuenoss/To-do-list/assets/130259941/7effd08d-cab5-46fb-9439-b4f8ec8267c3)
+
 ## Technologies Used:
 
 - **HTML**: Used for structuring the content and layout of the web pages.
@@ -12,8 +15,7 @@ The To-Do List project is a web application designed to facilitate task manageme
 
 - ~~Task prioritization and sorting options.~~
 - ~~save tasks in the browser~~
-- Implementation of a Timer to Specify Time Spent on Each Task
-- Integration with cloud-based storage.
+
 
 ## License
 MIT License.
